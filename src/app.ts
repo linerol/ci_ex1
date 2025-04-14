@@ -1,5 +1,12 @@
 import http from "http";
 import fs from "fs";
+import { User } from "./interfaces/user-interface";
+import { displayUserName } from "./lib/displayUserName";
+
+const user: User = {
+  firstName: "John",
+  lastName: "Doe",
+};
 
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
@@ -10,7 +17,7 @@ const server = http.createServer((req, res) => {
           <link rel="stylesheet" href="/public/css/styles.css"/>
         </head>
         <div class="app__message">
-          <h1>Hello World</h1>
+          <h1>Hello ${displayUserName(user)}</h1>
         </div>
       </html>
     `;
