@@ -1,8 +1,5 @@
 import http from "http";
 import fs from "fs";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
