@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "tsc",
     "start": "node ./dist/app.js",
     "dev": "nodemon ./dist/app.js",
-    "sass": "sass --watch ./src/styles:./public/css",
+    "sass:build": "sass ./src/styles:./public/css",
+    "sass:watch": "sass --watch ./src/styles:./public/css",
     "ts:watch": "tsc --watch",
+    "ts:build": "tsc",
     "prettier:fix": "prettier --write ./src/**/*.ts",
     "prettier:check": "prettier --check ./src/**/*.ts",
     "lint": "eslint src --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run ts:build && npm run sass:build && npm run prettier:check && npm run lint"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +31,6 @@
     "typescript-eslint": "^8.29.1"
   },
   "dependencies": {
-    "dotenv": "^16.5.0",
     "http": "^0.0.1-security",
     "sass": "^1.86.3"
   }
