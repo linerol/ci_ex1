@@ -1,0 +1,10 @@
+// filepath: c:\Users\Linerol\Documents\YNOV\CI_CD\ci_ex1\render.yaml
+services:
+  - type: web
+    name: ci-ex1
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
