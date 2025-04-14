@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "build": "npx tsc",
     "dev": "nodemon ./dist/app.js",
     "sass": "sass --watch ./src/styles:./public/css",
     "start": "node ./dist/app.js",
@@ -28,6 +29,7 @@
     "typescript-eslint": "^8.29.1"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
     "http": "^0.0.1-security",
     "sass": "^1.86.3"
   }
