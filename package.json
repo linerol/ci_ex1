@@ -13,7 +13,7 @@
     "prettier:check": "prettier --check ./src/**/*.ts",
     "lint": "eslint src --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run tsc && npm run sass:build && npm run prettier:check && npm run lint"
+    "build": "npm run ts:build && npm run sass:build && npm run prettier:check && npm run lint"
   },
   "keywords": [],
   "author": "",
