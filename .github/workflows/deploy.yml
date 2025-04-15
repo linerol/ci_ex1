@@ -1,18 +1,38 @@
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, dev, feature/*]
+
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build application
-        run: |
-          npm install
-          npm run build
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Sass
+        run: npm run sass:build
+
+      - name: Transpilation
+        run: npm run ts:build 
+
+      - name: Run prettier
+        run: npm run prettier:check
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test
+
+  cd:
+    needs: ci
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
