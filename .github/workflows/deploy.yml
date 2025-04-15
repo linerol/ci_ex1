@@ -2,6 +2,7 @@ on:
   pull_request:
   push:
     branches: [main]
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -25,9 +26,13 @@ jobs:
 
       - name: Run tests
         run: npm run test
-      
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
+
+  cd:
+    needs: ci
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
