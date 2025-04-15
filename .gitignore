@@ -29,5 +29,6 @@ yarn-error.log*
 # Coverage directory used by testing tools
 /coverage
 
+
 # CSS maps
 *.css.map
