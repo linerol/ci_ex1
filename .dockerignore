@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+.git/
+.github/
+.gitignore
+README.md
+.env
+*.md
+coverage/
