@@ -1,5 +1,6 @@
 import { User } from "../interfaces/user.interface";
 
 export const displayUserName = (user: User): string => {
-  return `${user.firstName} ${user.lastName}`;
+  const validName = `${user.firstName} ${user.lastName}`;
+  return validName;
 };
