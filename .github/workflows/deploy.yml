@@ -7,10 +7,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build application
-        run: |
-          npm install
-          npm run build
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Sass
+        run: npm run sass:build
+
+      - name: Transpilation
+        run: npm run ts:build 
+
+      - name: Run prettier
+        run: npm run prettier:check
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test
+      
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         env:
