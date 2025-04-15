@@ -1,6 +1,6 @@
 import http from "http";
 import fs from "fs";
-import { User } from "./interfaces/user-interface";
+import { User } from "./interfaces/user.interface";
 import { displayUserName } from "./lib/displayUserName";
 
 const user: User = {
